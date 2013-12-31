@@ -1,0 +1,37 @@
+.book-article
+{
+	width:100%;
+	min-height: 200px;
+
+}
+.book-info{
+	width:70%;
+}
+.book-cover{
+	float: left;
+	margin-right: 15px;
+}
+.book-list-item{
+	float:left;
+	width: 24%;
+	height: 240px;
+	/* border: 1px solid gray; */
+	padding:3%;
+
+}
+
+.book-list-title
+{
+
+	margin: 0 auto 0;
+}
+
+.book-list-autors{
+	font-size: 0.8em;
+	margin: 10px 0 10px 0;
+}
+
+.book-cat-title
+{
+	font-size: 2em;
+}
