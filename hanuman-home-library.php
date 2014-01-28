@@ -35,5 +35,5 @@ add_action( 'plugins_loaded', array( 'Hanuman_home_library', 'get_instance' ) );
 
 include(plugin_dir_path( __FILE__ )."customtypes.php");
 include(plugin_dir_path( __FILE__ )."widgets.php");
-
+include(plugin_dir_path( __FILE__ )."functions.php");
 

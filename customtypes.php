@@ -1,5 +1,7 @@
 <?php
 
+/* =============CUSTOM POST TYPE & CUSTOM TAXONOMYES======================*/
+
 // Register Book Post Type
 function custom_book_post_type() {
 
@@ -336,7 +338,7 @@ function series()  {
 add_action( 'init', 'series', 0 );
 
 
-//=================Templates =======================//
+/* =============TEMPLATE PARTS======================*/
 add_filter( 'template_include', 'include_template_function', 1 );
 
 function include_template_function( $template_path ) {
@@ -370,8 +372,9 @@ function include_template_function( $template_path ) {
 } //*/
 
 
+/* =============SHORTCODES ======================*/
 
-
+//han_get_termlist_by_term_id(25,'autor')
 function han_get_termlist_by_term_id($postID,$termName)
 {
 	 $terms = wp_get_post_terms($postID,$termName); 
@@ -392,8 +395,6 @@ function han_get_termlist_by_term_id($postID,$termName)
 	 return $linkLIST;
 }
 
-//============SHORTCODES==================//
-//han_get_termlist_by_term_id(25,'autor')
 function han_get_autors_list()
 {
 	$catnames = get_terms('autor');
@@ -426,3 +427,34 @@ function han_get_autors_list()
 add_shortcode( 'han-list-autors', 'han_get_autors_list');
 
 
+
+function han_get_years_list()
+{
+	$catnames = get_terms('publish_dates');
+	$retstring = "";
+	$curChar = mb_substr($catnames[0]->name,0,1);
+	$retstring.= "<strong>$curChar</strong><br>";
+	foreach ($catnames as $ccat) {
+		$name = $ccat->name;
+		$c=mb_substr($name,0,1);
+		if($curChar!=$c)
+		{
+			$curChar=mb_substr($name,0,1);
+			$retstring.= "<strong>$curChar</strong><br>";
+
+		}
+		$trmid = $ccat->slug;
+		$url = get_term_link($trmid,"publish_dates");
+		if(is_wp_error($url))
+		{
+			$url="";		
+		}
+
+		$retstring.="<a href='$url'>$name</a> (".$ccat->count.")<br>";	
+	
+	
+	}
+	return $retstring;
+}
+
+add_shortcode('han-list-years', 'han_get_years_list');

@@ -1,5 +1,5 @@
 <?php
-function widget_myuniquewidget($args) {
+function widget_han_display_genres($args) {
     extract($args);
     $taxargs = array(
 	'show_option_all'    => '',
@@ -36,7 +36,7 @@ function widget_myuniquewidget($args) {
         echo $after_widget; ?>
 <?php
 }
- wp_register_sidebar_widget('taxWidg','Book Categoryes','widget_myuniquewidget',array(                  // options
+ wp_register_sidebar_widget('taxWidg','Book Categoryes','widget_han_display_genres',array(                  // options
         'description' => 'Displays book categoryes (Genres) and subcategoryes'
     ));
 ?>

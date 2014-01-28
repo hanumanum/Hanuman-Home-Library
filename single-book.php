@@ -25,6 +25,7 @@ get_header();
 				<article class="book-article">
 
 				<h1 class="entry-title"><?php the_title(); ?></h1>				
+				<br>
 				<span class="book-cover">
 				<?php if (has_post_thumbnail()) : ?>
 							<?php the_post_thumbnail('hhl-size'); ?>
@@ -33,7 +34,10 @@ get_header();
 						<?php endif; ?>
 				</span>
 				<table class="book-info">
-
+				<tr>
+					<td>No. </td>
+					<td><?php echo $id; ?></td>
+				</tr>
 				<tr>
 					<td><?php _e('Authors', 'hanuman-home-library') ?></td>
 					<td><?php echo $autors; ?></td>

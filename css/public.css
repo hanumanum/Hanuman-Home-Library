@@ -7,6 +7,12 @@
 .book-info{
 	width:70%;
 }
+
+.book-info td{
+	padding:5px;
+	border-bottom: dotted 1px gray;
+}
+
 .book-cover{
 	float: left;
 	margin-right: 15px;
@@ -34,4 +40,21 @@
 .book-cat-title
 {
 	font-size: 2em;
+}
+
+
+.book-td{
+	min-width: 20px;
+	border-bottom: dotted 1px gray;
+	vertical-align: top;
+	padding-top:15px;
+	padding:5px;
+}
+
+.book-row{
+
+}
+
+.book-td{
+
 }
